@@ -106,7 +106,14 @@ const LandingPage = () => {
               develop innovative architecture that increases system resilience
               and productivity while maintaining existing operational processes.
             </p>
-            <button className="flex items-center justify-between w-full max-w-[200px] bg-black text-white px-6 py-4 group hover:bg-[#40E0D0] hover:text-black transition-all duration-300">
+            <button 
+            onClick={() =>
+                  document
+                    .getElementById("services")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+            className="flex items-center justify-between w-full max-w-[200px] bg-black text-white px-6 py-4 group hover:bg-[#40E0D0] hover:text-black transition-all duration-300"
+            >
               <span className="font-bold uppercase tracking-widest text-xs">
                 Learn More
               </span>
@@ -176,7 +183,10 @@ const LandingPage = () => {
         </div>
       </section>
       {/* Secondary Why Us / Call to Action Section */}
-      <section className="bg-[#0a0a0a] text-white py-24 px-6 md:px-12 relative border-t border-white/5">
+      <section
+        id="services"
+       className="bg-[#0a0a0a] text-white py-24 px-6 md:px-12 relative border-t border-white/5"
+       >
         <div className="max-w-7xl mx-auto">
           {/* Header Area following the design language */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20">
@@ -313,7 +323,14 @@ const LandingPage = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               {/* Learn More Button */}
-              <button className="bg-white text-black font-bold uppercase tracking-widest text-xs px-10 py-5 hover:bg-[#40E0D0] transition-all flex items-center justify-between min-w-[200px]">
+              <button 
+              onClick={() =>
+                  document
+                    .getElementById("why-us")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+              className="bg-white text-black font-bold uppercase tracking-widest text-xs px-10 py-5 hover:bg-[#40E0D0] transition-all flex items-center justify-between min-w-[200px]"
+              >
                 Learn More <ArrowRight size={16} />
               </button>
 
