@@ -90,9 +90,11 @@ const LandingPage = () => {
         </div>
       </main>
       {/* Why Us Section */}
-      <section id="why-us" className="bg-white text-black py-24 px-6 md:px-12 relative overflow-hidden">
+      <section
+        id="why-us"
+        className="bg-white text-black py-24 px-6 md:px-12 relative overflow-hidden"
+      >
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
-          
           {/* Left Side: Content */}
           <div className="lg:col-span-5 flex flex-col justify-center">
             <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-none">
@@ -100,12 +102,14 @@ const LandingPage = () => {
               revolution
             </h2>
             <p className="text-gray-600 text-lg mb-10 leading-relaxed max-w-sm">
-              What value do we create for your digital infrastructure? We develop innovative 
-              architecture that increases system resilience and productivity while 
-              maintaining existing operational processes.
+              What value do we create for your digital infrastructure? We
+              develop innovative architecture that increases system resilience
+              and productivity while maintaining existing operational processes.
             </p>
             <button className="flex items-center justify-between w-full max-w-[200px] bg-black text-white px-6 py-4 group hover:bg-[#40E0D0] hover:text-black transition-all duration-300">
-              <span className="font-bold uppercase tracking-widest text-xs">Learn More</span>
+              <span className="font-bold uppercase tracking-widest text-xs">
+                Learn More
+              </span>
               <ArrowRight className="group-hover:translate-x-2 transition-transform" />
             </button>
           </div>
@@ -128,8 +132,9 @@ const LandingPage = () => {
                     Limited system scalability
                   </h4>
                   <p className="text-gray-500 text-sm leading-relaxed max-w-md">
-                    Expand your capabilities to support any user load with cloud-native 
-                    architecture designed for infinite horizontal scaling.
+                    Expand your capabilities to support any user load with
+                    cloud-native architecture designed for infinite horizontal
+                    scaling.
                   </p>
                 </div>
               </div>
@@ -144,8 +149,9 @@ const LandingPage = () => {
                     Security vulnerabilities & leaks
                   </h4>
                   <p className="text-gray-500 text-sm leading-relaxed max-w-md">
-                    Automate manual security audits and implement zero-trust protocols 
-                    to remove human-factor risks from your server environments.
+                    Automate manual security audits and implement zero-trust
+                    protocols to remove human-factor risks from your server
+                    environments.
                   </p>
                 </div>
               </div>
@@ -160,15 +166,14 @@ const LandingPage = () => {
                     Disjointed data pipelines
                   </h4>
                   <p className="text-gray-500 text-sm leading-relaxed max-w-md">
-                    Create seamless data flow from mobile edge devices to central 
-                    processing clusters without latency bottlenecks.
+                    Create seamless data flow from mobile edge devices to
+                    central processing clusters without latency bottlenecks.
                   </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
       </section>
       {/* Secondary Why Us / Call to Action Section */}
       <section className="bg-[#0a0a0a] text-white py-24 px-6 md:px-12 relative border-t border-white/5">
@@ -181,18 +186,25 @@ const LandingPage = () => {
                 engineered with precision
               </h2>
               <p className="text-gray-400 text-lg max-w-xl leading-relaxed">
-                Apex Software Solutions provides the architecture and code that bridges the gap 
-                between your vision and production-ready systems.
+                Apex Software Solutions provides the architecture and code that
+                bridges the gap between your vision and production-ready
+                systems.
               </p>
             </div>
-            
+
             {/* CTA Button leading to Contact Us */}
             <div className="lg:col-span-4 flex items-end lg:justify-end pb-2">
-              <button 
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="flex items-center justify-between w-full lg:w-64 border border-white/20 px-6 py-5 group hover:border-[#40E0D0] hover:text-[#40E0D0] transition-all"
               >
-                <span className="font-bold uppercase tracking-widest text-xs">Start Consultation</span>
+                <span className="font-bold uppercase tracking-widest text-xs">
+                  Start Consultation
+                </span>
                 <ArrowRight className="group-hover:translate-x-2 transition-transform" />
               </button>
             </div>
@@ -205,9 +217,12 @@ const LandingPage = () => {
               <div className="w-10 h-10 mb-8 border border-[#40E0D0]/30 flex items-center justify-center">
                 <div className="w-2 h-2 bg-[#40E0D0]" />
               </div>
-              <h4 className="text-[#40E0D0] font-bold uppercase tracking-widest text-xs mb-4">Mobile Creation</h4>
+              <h4 className="text-[#40E0D0] font-bold uppercase tracking-widest text-xs mb-4">
+                Mobile Creation
+              </h4>
               <p className="text-gray-400 text-sm leading-relaxed">
-                High-performance Android and iOS development tailored for seamless user experiences.
+                High-performance Android and iOS development tailored for
+                seamless user experiences.
               </p>
             </div>
 
@@ -216,9 +231,12 @@ const LandingPage = () => {
               <div className="w-10 h-10 mb-8 border border-[#40E0D0]/30 flex items-center justify-center">
                 <div className="w-4 h-[1px] bg-[#40E0D0]" />
               </div>
-              <h4 className="text-[#40E0D0] font-bold uppercase tracking-widest text-xs mb-4">Web Ecosystems</h4>
+              <h4 className="text-[#40E0D0] font-bold uppercase tracking-widest text-xs mb-4">
+                Web Ecosystems
+              </h4>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Scalable web applications built with modern frameworks for enterprise-grade stability.
+                Scalable web applications built with modern frameworks for
+                enterprise-grade stability.
               </p>
             </div>
 
@@ -227,9 +245,12 @@ const LandingPage = () => {
               <div className="w-10 h-10 mb-8 border border-[#40E0D0]/30 flex items-center justify-center">
                 <div className="w-3 h-3 border border-[#40E0D0] rotate-45" />
               </div>
-              <h4 className="text-[#40E0D0] font-bold uppercase tracking-widest text-xs mb-4">Solidity Backend</h4>
+              <h4 className="text-[#40E0D0] font-bold uppercase tracking-widest text-xs mb-4">
+                Solidity Backend
+              </h4>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Secure smart contract development and robust blockchain infrastructure.
+                Secure smart contract development and robust blockchain
+                infrastructure.
               </p>
             </div>
 
@@ -238,9 +259,12 @@ const LandingPage = () => {
               <div className="w-10 h-10 mb-8 border border-[#40E0D0]/30 flex items-center justify-center">
                 <div className="w-4 h-4 rounded-full border border-[#40E0D0] border-dotted" />
               </div>
-              <h4 className="text-[#40E0D0] font-bold uppercase tracking-widest text-xs mb-4">Cybersecurity</h4>
+              <h4 className="text-[#40E0D0] font-bold uppercase tracking-widest text-xs mb-4">
+                Cybersecurity
+              </h4>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Integrating real-time threat detection and security hardening into every build.
+                Integrating real-time threat detection and security hardening
+                into every build.
               </p>
             </div>
 
@@ -249,9 +273,12 @@ const LandingPage = () => {
               <div className="w-10 h-10 mb-8 border border-[#40E0D0]/30 flex items-center justify-center">
                 <div className="w-4 h-4 border-l border-b border-[#40E0D0]" />
               </div>
-              <h4 className="text-[#40E0D0] font-bold uppercase tracking-widest text-xs mb-4">Server Creation</h4>
+              <h4 className="text-[#40E0D0] font-bold uppercase tracking-widest text-xs mb-4">
+                Server Creation
+              </h4>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Bespoke server setups designed for high availability and low-latency performance.
+                Bespoke server setups designed for high availability and
+                low-latency performance.
               </p>
             </div>
 
@@ -260,11 +287,98 @@ const LandingPage = () => {
               <div className="w-10 h-10 mb-8 border border-[#40E0D0]/30 flex items-center justify-center">
                 <ArrowRight size={16} className="text-[#40E0D0]" />
               </div>
-              <h4 className="text-[#40E0D0] font-bold uppercase tracking-widest text-xs mb-4">System Architecture</h4>
+              <h4 className="text-[#40E0D0] font-bold uppercase tracking-widest text-xs mb-4">
+                System Architecture
+              </h4>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Strategic structural planning for complex server environments and scalable networks.
+                Strategic structural planning for complex server environments
+                and scalable networks.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+      {/* Contact Us Section */}
+      <section
+        id="contact"
+        className="bg-[#0a0a0a] text-white py-24 px-6 md:px-12 border-t border-white/5 overflow-hidden"
+      >
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          {/* Left Content Area */}
+          <div className="lg:col-span-7">
+            <h2 className="text-[#FF4500] text-5xl md:text-7xl font-medium tracking-tighter leading-none mb-12">
+              Close the gaps <span className="text-white">between </span> <br />
+              vision and <span className="text-white">production.</span>
+            </h2>
+
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              {/* Learn More Button */}
+              <button className="bg-white text-black font-bold uppercase tracking-widest text-xs px-10 py-5 hover:bg-[#40E0D0] transition-all flex items-center justify-between min-w-[200px]">
+                Learn More <ArrowRight size={16} />
+              </button>
+
+              {/* Contact Us / WhatsApp Button */}
+              <a
+                href="https://wa.me/254703560705?text=Hello%20Apex%20Software%20Solutions,%20I'm%20interested%20in%20discussing%20a%20project%20regarding%20mobile/web%20development%20and%20system%20architecture."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-white/20 text-white font-bold uppercase tracking-widest text-xs px-10 py-5 hover:border-[#40E0D0] hover:text-[#40E0D0] transition-all flex items-center justify-between min-w-[200px]"
+              >
+                Contact Us <ArrowRight size={16} />
+              </a>
+            </div>
+
+            {/* Direct Contact Info */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-12 border-t border-white/10">
+              <div>
+                <h4 className="text-[#40E0D0] font-bold uppercase tracking-widest text-[10px] mb-4 text-opacity-70">
+                  Presence
+                </h4>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Virtual-First Operations
+                  <br />
+                  Based in Nairobi, Kenya
+                  <br />
+                  Serving Clients Globally
+                </p>
+              </div>
+              <div>
+                <h4 className="text-[#40E0D0] font-bold uppercase tracking-widest text-[10px] mb-4 text-opacity-70">
+                  Direct Line
+                </h4>
+                <p className="text-white text-lg font-medium hover:text-[#40E0D0] transition-colors cursor-pointer">
+                  +254 703 560 705
+                </p>
+                <p className="text-white text-lg font-medium hover:text-[#40E0D0] transition-colors cursor-pointer">
+                  +254 794 721 461
+                </p>
+                <p className="text-gray-500 text-xs mt-1 uppercase tracking-wider">
+                  Available for Consultation
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Image/Visual Area */}
+          <div className="lg:col-span-5 relative">
+            <div className="aspect-[4/5] bg-gray-900 border border-white/10 relative overflow-hidden group">
+              {/* Replace the src with your actual team or office photo */}
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80"
+                alt="Apex Software Solutions Team"
+                className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
+            </div>
+
+            {/* Design Decor mimicking the screenshot */}
+            <div className="absolute -bottom-6 -left-6 w-24 h-24 border-l-2 border-b-2 border-[#40E0D0] opacity-30" />
+          </div>
+          {/* Motto / Footer Branding */}
+          <div className="lg:col-span-12 mt-20 pt-8 border-t border-white/5 flex justify-center">
+            <p className="text-[#40E0D0] font-light italic text-center max-w-2xl text-lg md:text-xl tracking-wide">
+              "Diligence in delivering your business' online presence"
+            </p>
           </div>
         </div>
       </section>
