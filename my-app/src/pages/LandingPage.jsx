@@ -231,7 +231,7 @@ const LandingPage = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* 1. Mobile Creation */}
             <div className="border border-white/10 p-10 hover:border-[#40E0D0]/50 transition-colors group">
               <div className="w-10 h-10 mb-8 border border-[#40E0D0]/30 flex items-center justify-center">
