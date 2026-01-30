@@ -51,7 +51,9 @@ const LandingPage = () => {
                 cybersecurity protocols and seamless user experiences.
               </p>
 
-              <button className="flex items-center justify-between w-full border border-white/20 px-6 py-5 group hover:border-[#40E0D0] hover:text-[#40E0D0] transition-all">
+              <button 
+              className="flex items-center justify-between w-full border border-white/20 px-6 py-5 group hover:border-[#40E0D0] hover:text-[#40E0D0] transition-all"
+              onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}>
                 <span className="font-bold uppercase tracking-widest text-xs md:text-sm">
                   View our stack
                 </span>
