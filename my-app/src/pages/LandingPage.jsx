@@ -1,9 +1,26 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, ArrowUp } from "lucide-react";
 import NavBar from "./NavBar";
 
 const LandingPage = () => {
+  // Simple effect to ensure smooth scrolling works across the whole page
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = "smooth";
+    
+    // Logic to show button after scrolling 400px
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      document.documentElement.style.scrollBehavior = "auto";
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const blockVariants = {
     animate: {
       rotateY: [0, 90, 180, 270, 360],
@@ -16,19 +33,25 @@ const LandingPage = () => {
     },
   };
 
+  // Animation settings for sections to "pop" into view
+  const sectionPop = {
+    initial: { opacity: 0, y: 50 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.2 },
+    transition: { duration: 0.8, ease: "easeOut" }
+  };
+
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-[#40E0D0] selection:text-black overflow-x-hidden">
       <NavBar />
 
       <main className="relative grid grid-cols-12 min-h-[calc(100vh-88px)]">
-        {/* Background Grid Lines - Hidden on very small screens for cleanliness */}
         <div className="absolute inset-0 grid grid-cols-2 md:grid-cols-4 pointer-events-none opacity-20">
           {[...Array(4)].map((_, i) => (
             <div key={i} className="border-r border-white/10 h-full" />
           ))}
         </div>
 
-        {/* Hero Content */}
         <div className="col-span-12 lg:col-span-7 pt-12 md:pt-24 px-6 md:px-12 z-10 flex flex-col justify-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -43,7 +66,6 @@ const LandingPage = () => {
 
             <div className="w-12 h-px bg-[#40E0D0] mb-8 md:mb-12" />
 
-            {/* Added ml-8 to ensure the indent is present on mobile as well */}
             <div className="max-w-md ml-8 lg:ml-auto lg:mr-24">
               <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-8 md:mb-12">
                 Apex provides end-to-end architecture for mobile, web, and
@@ -52,8 +74,9 @@ const LandingPage = () => {
               </p>
 
               <button 
-              className="flex items-center justify-between w-full border border-white/20 px-6 py-5 group hover:border-[#40E0D0] hover:text-[#40E0D0] transition-all"
-              onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}>
+                className="flex items-center justify-between w-full border border-white/20 px-6 py-5 group hover:border-[#40E0D0] hover:text-[#40E0D0] transition-all"
+                onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
+              >
                 <span className="font-bold uppercase tracking-widest text-xs md:text-sm">
                   View our stack
                 </span>
@@ -63,10 +86,8 @@ const LandingPage = () => {
           </motion.div>
         </div>
 
-        {/* Animated Block Section - Now hidden on small screens and lifted on desktop */}
         <div className="hidden lg:flex lg:col-span-5 relative items-center justify-center lg:min-h-full">
           <div className="relative w-48 h-72 md:w-64 md:h-96 lg:-mt-32">
-            {/* The "Joining" Block */}
             <motion.div
               className="absolute inset-0 bg-[#40E0D0]"
               variants={blockVariants}
@@ -79,7 +100,6 @@ const LandingPage = () => {
               <div className="absolute inset-0 bg-black/20 translate-x-2 translate-y-2 md:translate-x-4 md:translate-y-4 -z-10" />
             </motion.div>
 
-            {/* Loop Animation */}
             <motion.div
               animate={{
                 y: [80, -20, 80],
@@ -91,13 +111,14 @@ const LandingPage = () => {
           </div>
         </div>
       </main>
-      {/* Why Us Section */}
-      <section
+
+      {/* Why Us Section - Now with Pop Animation */}
+      <motion.section
+        {...sectionPop}
         id="why-us"
         className="bg-white text-black py-24 px-6 md:px-12 relative overflow-hidden"
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
-          {/* Left Side: Content */}
           <div className="lg:col-span-5 flex flex-col justify-center">
             <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-none">
               Evolution, not <br />
@@ -109,12 +130,8 @@ const LandingPage = () => {
               and productivity while maintaining existing operational processes.
             </p>
             <button 
-            onClick={() =>
-                  document
-                    .getElementById("services")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-            className="flex items-center justify-between w-full max-w-[200px] bg-black text-white px-6 py-4 group hover:bg-[#40E0D0] hover:text-black transition-all duration-300"
+              onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
+              className="flex items-center justify-between w-full max-w-[200px] bg-black text-white px-6 py-4 group hover:bg-[#40E0D0] hover:text-black transition-all duration-300"
             >
               <span className="font-bold uppercase tracking-widest text-xs">
                 Learn More
@@ -123,14 +140,12 @@ const LandingPage = () => {
             </button>
           </div>
 
-          {/* Right Side: Feature Grid */}
           <div className="lg:col-span-7 border-l border-gray-100 pl-0 lg:pl-16">
             <span className="text-[10px] font-bold tracking-[0.3em] text-[#40E0D0] uppercase block mb-12">
               Challenges we address
             </span>
 
             <div className="space-y-12">
-              {/* Feature 1 */}
               <div className="flex gap-8 group">
                 <div className="w-16 h-16 border border-gray-200 flex-shrink-0 flex items-center justify-center relative">
                   <div className="w-8 h-8 border-2 border-dotted border-gray-300 group-hover:border-[#40E0D0] transition-colors" />
@@ -148,7 +163,6 @@ const LandingPage = () => {
                 </div>
               </div>
 
-              {/* Feature 2 */}
               <div className="flex gap-8 group">
                 <div className="w-16 h-16 border border-gray-200 flex-shrink-0 flex items-center justify-center relative">
                   <div className="w-8 h-8 border-2 border-gray-800 rotate-45 group-hover:border-[#40E0D0] transition-colors" />
@@ -165,7 +179,6 @@ const LandingPage = () => {
                 </div>
               </div>
 
-              {/* Feature 3 */}
               <div className="flex gap-8 group">
                 <div className="w-16 h-16 border border-gray-200 flex-shrink-0 flex items-center justify-center relative">
                   <div className="w-8 h-8 rounded-full border-2 border-gray-300 border-dashed group-hover:border-[#40E0D0] transition-colors" />
@@ -183,14 +196,15 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
-      </section>
-      {/* Secondary Why Us / Call to Action Section */}
-      <section
+      </motion.section>
+
+      {/* Services Section - Now with Pop Animation */}
+      <motion.section
+        {...sectionPop}
         id="services"
-       className="bg-[#0a0a0a] text-white py-24 px-6 md:px-12 relative border-t border-white/5"
-       >
+        className="bg-[#0a0a0a] text-white py-24 px-6 md:px-12 relative border-t border-white/5"
+      >
         <div className="max-w-7xl mx-auto">
-          {/* Header Area following the design language */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20">
             <div className="lg:col-span-8">
               <h2 className="text-4xl md:text-6xl font-medium tracking-tighter leading-none mb-8">
@@ -204,14 +218,9 @@ const LandingPage = () => {
               </p>
             </div>
 
-            {/* CTA Button leading to Contact Us */}
             <div className="lg:col-span-4 flex items-end lg:justify-end pb-2">
               <button
-                onClick={() =>
-                  document
-                    .getElementById("contact")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
+                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
                 className="flex items-center justify-between w-full lg:w-64 border border-white/20 px-6 py-5 group hover:border-[#40E0D0] hover:text-[#40E0D0] transition-all"
               >
                 <span className="font-bold uppercase tracking-widest text-xs">
@@ -222,7 +231,6 @@ const LandingPage = () => {
             </div>
           </div>
 
-          {/* 6-Card Expertise Grid with Outlined Design */}
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* 1. Mobile Creation */}
             <div className="border border-white/10 p-10 hover:border-[#40E0D0]/50 transition-colors group">
@@ -266,7 +274,7 @@ const LandingPage = () => {
               </p>
             </div>
 
-            {/* 4. Cybersecurity (Upcoming) */}
+            {/* 4. Cybersecurity */}
             <div className="border border-white/10 p-10 hover:border-[#40E0D0]/50 transition-colors">
               <div className="w-10 h-10 mb-8 border border-[#40E0D0]/30 flex items-center justify-center">
                 <div className="w-4 h-4 rounded-full border border-[#40E0D0] border-dotted" />
@@ -309,34 +317,29 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
-      </section>
-      {/* Contact Us Section */}
-      <section
+      </motion.section>
+
+      {/* Contact Us Section - Now with Pop Animation */}
+      <motion.section
+        {...sectionPop}
         id="contact"
         className="bg-[#0a0a0a] text-white py-24 px-6 md:px-12 border-t border-white/5 overflow-hidden"
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          {/* Left Content Area */}
           <div className="lg:col-span-7">
-            <h2 className="text-[#FF4500] text-5xl md:text-7xl font-medium tracking-tighter leading-none mb-12">
+            <h2 className="text-[#40E0D0] text-5xl md:text-7xl font-medium tracking-tighter leading-none mb-12">
               Close the gaps <span className="text-white">between </span> <br />
               vision and <span className="text-white">production.</span>
             </h2>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              {/* Learn More Button */}
               <button 
-              onClick={() =>
-                  document
-                    .getElementById("why-us")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-              className="bg-white text-black font-bold uppercase tracking-widest text-xs px-10 py-5 hover:bg-[#40E0D0] transition-all flex items-center justify-between min-w-[200px]"
+                onClick={() => document.getElementById("why-us")?.scrollIntoView({ behavior: "smooth" })}
+                className="bg-white text-black font-bold uppercase tracking-widest text-xs px-10 py-5 hover:bg-[#40E0D0] transition-all flex items-center justify-between min-w-[200px]"
               >
                 Learn More <ArrowRight size={16} />
               </button>
 
-              {/* Contact Us / WhatsApp Button */}
               <a
                 href="https://wa.me/254703560705?text=Hello%20Apex%20Software%20Solutions,%20I'm%20interested%20in%20discussing%20a%20project%20regarding%20mobile/web%20development%20and%20system%20architecture."
                 target="_blank"
@@ -347,17 +350,14 @@ const LandingPage = () => {
               </a>
             </div>
 
-            {/* Direct Contact Info */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-12 border-t border-white/10">
               <div>
                 <h4 className="text-[#40E0D0] font-bold uppercase tracking-widest text-[10px] mb-4 text-opacity-70">
                   Presence
                 </h4>
                 <p className="text-gray-400 text-sm leading-relaxed">
-                  Virtual-First Operations
-                  <br />
-                  Based in Nairobi, Kenya
-                  <br />
+                  Virtual-First Operations<br />
+                  Based in Nairobi, Kenya<br />
                   Serving Clients Globally
                 </p>
               </div>
@@ -378,10 +378,8 @@ const LandingPage = () => {
             </div>
           </div>
 
-          {/* Right Image/Visual Area */}
           <div className="lg:col-span-5 relative">
             <div className="aspect-[4/5] bg-gray-900 border border-white/10 relative overflow-hidden group">
-              {/* Replace the src with your actual team or office photo */}
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80"
                 alt="Apex Software Solutions Team"
@@ -389,18 +387,31 @@ const LandingPage = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
             </div>
-
-            {/* Design Decor mimicking the screenshot */}
             <div className="absolute -bottom-6 -left-6 w-24 h-24 border-l-2 border-b-2 border-[#40E0D0] opacity-30" />
           </div>
-          {/* Motto / Footer Branding */}
+
           <div className="lg:col-span-12 mt-20 pt-8 border-t border-white/5 flex justify-center">
             <p className="text-[#40E0D0] font-light italic text-center max-w-2xl text-lg md:text-xl tracking-wide">
               "Diligence in delivering your business' online presence"
             </p>
           </div>
         </div>
-      </section>
+      </motion.section>
+      {/* BACK TO TOP BUTTON */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="fixed bottom-8 right-8 z-[100] bg-[#40E0D0] text-black p-4 rounded-none shadow-[0_0_20px_rgba(64,224,208,0.3)] hover:bg-[#36c2b5] transition-colors group"
+            aria-label="Back to top"
+          >
+            <ArrowUp size={20} className="group-hover:-translate-y-1 transition-transform" />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
