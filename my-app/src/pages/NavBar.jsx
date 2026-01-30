@@ -1,5 +1,5 @@
-import React from 'react';
-import { ExternalLink } from 'lucide-react';
+import React from "react";
+import { ExternalLink } from "lucide-react";
 
 const NavBar = () => {
   return (
@@ -16,9 +16,15 @@ const NavBar = () => {
 
       {/* Simplified Links */}
       <div className="hidden md:flex items-center gap-12 text-sm font-medium uppercase tracking-widest text-gray-400">
-        <a href="#home" className="hover:text-[#40E0D0] transition-colors">Home</a>
-        <a href="#why-us" className="hover:text-[#40E0D0] transition-colors">Why Us</a>
-        <a href="#contact" className="hover:text-[#40E0D0] transition-colors">Contact Us</a>
+        <a href="#home" className="hover:text-[#40E0D0] transition-colors">
+          Home
+        </a>
+        <a href="#why-us" className="hover:text-[#40E0D0] transition-colors">
+          Why Us
+        </a>
+        <a href="#contact" className="hover:text-[#40E0D0] transition-colors">
+          Contact Us
+        </a>
       </div>
 
       {/* Action Area */}
@@ -26,9 +32,16 @@ const NavBar = () => {
         {/* <div className="hidden sm:flex items-center gap-1 text-sm text-gray-400 cursor-pointer hover:text-white transition-colors">
           Login <ExternalLink size={14} />
         </div> */}
-        <button className="bg-[#40E0D0] text-black px-6 py-4 font-bold text-sm uppercase tracking-widest hover:bg-[#36c2b5] transition-all shadow-[0_0_20px_rgba(64,224,208,0.2)]">
-          Consult Now
-        </button>
+        <a
+          href="https://wa.me/254703560705?text=Hello%20Apex%20Software%20Solutions,%20I'm%20interested%20in%20discussing%20a%20project%20regarding%20mobile/web%20development%20and%20system%20architecture."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block"
+        >
+          <button className="bg-[#40E0D0] text-black px-6 py-4 font-bold text-sm uppercase tracking-widest hover:bg-[#36c2b5] transition-all shadow-[0_0_20px_rgba(64,224,208,0.2)]">
+            Consult Now
+          </button>
+        </a>
       </div>
     </nav>
   );
